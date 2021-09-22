@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="hamber_menu_text_size">16sp</dimen>
+    <dimen name="hamber_menu_icon_size">24dp</dimen>
+
+
+
+
+</resources>
