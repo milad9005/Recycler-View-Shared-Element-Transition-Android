@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
+                android:theme="@style/Theme.POC.AppBarOverlay"
                 android:background="@color/blue_700"
                 app:liftOnScroll="true">
 
@@ -37,6 +38,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
                     app:titleTextColor="@color/white_gray" />
 
 

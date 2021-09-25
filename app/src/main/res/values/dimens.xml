@@ -4,6 +4,7 @@
 
     <dimen name="hamber_menu_text_size">16sp</dimen>
     <dimen name="hamber_menu_icon_size">24dp</dimen>
+    <dimen name="bottom_offset_dp">16dp</dimen>
 
 
 

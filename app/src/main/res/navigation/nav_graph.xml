@@ -9,5 +9,14 @@
         android:id="@+id/blankFragment"
         android:name="ir.matiran.poc.BlankFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment_to_showKeysDetailFragment"
+            app:destination="@id/showKeysDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showKeysDetailFragment"
+        android:name="ir.matiran.poc.ShowKeysDetailFragment"
+        android:label="fragment_show_keys_detail"
+        tools:layout="@layout/fragment_show_keys_detail" />
 </navigation>

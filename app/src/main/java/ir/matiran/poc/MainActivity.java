@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity implements ToolBarController
     public void setToolbar_Title(String title) {
         toolbar.setTitle(title);
         toolbar.setSubtitle("");
-        toolbar.setTitleTextAppearance(this, R.style.TitleCustomStyle);
+        //toolbar.setTitleTextAppearance(this, R.style.TitleCustomStyle);
         toolbar.setTitleTextColor(ResourcesCompat.getColor(getResources(),R.color.white,null));
     }
 
     @Override
     public void setToolbar_SubTitle(String title) {
         toolbar.setSubtitle(title);
-        toolbar.setSubtitleTextAppearance(this, R.style.SubTitleCustomStyle);
+        //toolbar.setSubtitleTextAppearance(this, R.style.SubTitleCustomStyle);
     }
 
     @Override

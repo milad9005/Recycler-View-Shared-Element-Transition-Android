@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mlsdev.animatedrv.AnimatedRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_view"
     android:layout_width="match_parent"
-    android:animateLayoutChanges="true"
     android:layout_height="match_parent"
-    tools:context=".BlankFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+    app:animationDuration="600"
+    app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+    app:layoutManagerOrientation="vertical"
+    app:layoutManagerReverse="false"
+    app:layoutManagerType="linear"
+    tools:listitem="@layout/key_item_model" />
