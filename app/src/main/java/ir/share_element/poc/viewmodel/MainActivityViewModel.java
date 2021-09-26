@@ -1,4 +1,4 @@
-package ir.matiran.poc.viewmodel;
+package ir.share_element.poc.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 

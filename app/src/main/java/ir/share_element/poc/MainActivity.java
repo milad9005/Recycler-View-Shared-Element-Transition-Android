@@ -1,4 +1,4 @@
-package ir.matiran.poc;
+package ir.share_element.poc;
 
 import android.animation.LayoutTransition;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-import ir.matiran.poc.databinding.ActivityMainBinding;
-import ir.matiran.poc.viewmodel.MainActivityViewModel;
+import ir.share_element.poc.databinding.ActivityMainBinding;
+import ir.share_element.poc.viewmodel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity implements ToolBarController {
 

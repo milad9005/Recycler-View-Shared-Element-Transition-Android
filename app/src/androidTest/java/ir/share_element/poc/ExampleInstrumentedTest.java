@@ -1,4 +1,4 @@
-package ir.matiran.poc;
+package ir.share_element.poc;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ir.matiran.poc", appContext.getPackageName());
+        assertEquals("ir.share_element.poc", appContext.getPackageName());
     }
 }

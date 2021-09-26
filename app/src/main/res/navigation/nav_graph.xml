@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/showKeysDetailFragment"
-        android:name="ir.matiran.poc.KeysShowDetailFragment"
+        android:name="ir.share_element.poc.KeysShowDetailFragment"
         android:label="fragment_show_keys_detail"
         tools:layout="@layout/fragment_keys_show_detail" />
     <fragment
         android:id="@+id/keysRecyclerViewFragment"
-        android:name="ir.matiran.poc.KeysRecyclerViewFragment"
+        android:name="ir.share_element.poc.KeysRecyclerViewFragment"
         android:label="fragment_keys_recycler_view"
         tools:layout="@layout/fragment_keys_recycler_view" >
         <action
@@ -20,14 +20,5 @@
             app:destination="@id/showKeysDetailFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/blankFragment"
-        android:name="ir.matiran.poc.BlankFragment"
-        android:label="fragment_blank2"
-        tools:layout="@layout/fragment_blank2" >
-        <action
-            android:id="@+id/action_blankFragment_to_showKeysDetailFragment"
-            app:destination="@id/showKeysDetailFragment" />
     </fragment>
 </navigation>

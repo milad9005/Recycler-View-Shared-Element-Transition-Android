@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:animationDuration="600"
-    app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+
     app:layoutManagerOrientation="vertical"
     app:layoutManagerReverse="false"
     app:layoutManagerType="linear"
-    tools:listitem="@layout/key_item_model"
-    tools:context=".KeysRecyclerViewFragment"/>
+    tools:context=".KeysRecyclerViewFragment"
+    tools:listitem="@layout/key_item_model" />

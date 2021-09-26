@@ -1,4 +1,4 @@
-package ir.matiran.poc;
+package ir.share_element.poc;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,13 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.FragmentNavigator;
-import androidx.transition.Transition;
 import androidx.transition.TransitionInflater;
 
-import ir.matiran.poc.databinding.FragmentKeysShowDetailBinding;
+import ir.share_element.poc.databinding.FragmentKeysShowDetailBinding;
 
 
 public class KeysShowDetailFragment extends Fragment {

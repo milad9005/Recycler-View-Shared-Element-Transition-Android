@@ -1,6 +1,5 @@
-package ir.matiran.poc.keysListView;
+package ir.share_element.poc.keysListView;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
-import ir.matiran.poc.R;
+import ir.share_element.poc.R;
 
 public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterViewHolder> {
 

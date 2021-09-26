@@ -1,4 +1,4 @@
-package ir.matiran.poc;
+package ir.share_element.poc;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.jetbrains.annotations.NotNull;
 
-import ir.matiran.poc.databinding.FragmentKeysRecyclerViewBinding;
-import ir.matiran.poc.keysListView.BottomOffsetDecoration;
-import ir.matiran.poc.keysListView.KeysAdapter;
+import ir.share_element.poc.databinding.FragmentKeysRecyclerViewBinding;
+import ir.share_element.poc.keysListView.BottomOffsetDecoration;
+import ir.share_element.poc.keysListView.KeysAdapter;
 
 public class KeysRecyclerViewFragment extends Fragment {
 
@@ -27,6 +27,7 @@ public class KeysRecyclerViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -38,7 +39,7 @@ public class KeysRecyclerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentKeysRecyclerViewBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+              return binding.getRoot();
     }
 
     @Override
@@ -49,7 +50,7 @@ public class KeysRecyclerViewFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         adapter.notifyDataSetChanged();
         binding.recyclerView.setAdapter(adapter);
-
+        binding.recyclerView.scheduleLayoutAnimation();
 
         float offsetPx = getResources().getDimension(R.dimen.bottom_offset_dp);
         BottomOffsetDecoration bottomOffsetDecoration = new BottomOffsetDecoration((int) offsetPx);
