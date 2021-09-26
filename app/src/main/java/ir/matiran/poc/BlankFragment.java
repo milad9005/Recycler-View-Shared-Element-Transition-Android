@@ -1,75 +1,47 @@
 package ir.matiran.poc;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.navigation.fragment.FragmentNavigator;
 
-import org.jetbrains.annotations.NotNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import ir.matiran.poc.databinding.FragmentBlankBinding;
-import ir.matiran.poc.keysListView.BottomOffsetDecoration;
-import ir.matiran.poc.keysListView.KeysAdapter;
+import ir.matiran.poc.databinding.FragmentBlank2Binding;
+
 
 public class BlankFragment extends Fragment {
 
-    private FragmentBlankBinding binding;
+    FragmentBlank2Binding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentBlankBinding.inflate(inflater, container, false);
+       binding = FragmentBlank2Binding.inflate(inflater,container,false);
         return binding.getRoot();
     }
 
+
     @Override
-    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        KeysAdapter adapter = new KeysAdapter();
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
-//        binding.recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        binding.recyclerView.setAdapter(adapter);
-        binding.recyclerView.scheduleLayoutAnimation();
+        ViewCompat.setTransitionName(binding.textView,"shareelement");
+        binding.textView.setOnClickListener(v -> {
 
-        NavController navController = Navigation.findNavController(view);
+            FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder().addSharedElement(binding.textView,"shareelement").build();
 
-        float offsetPx = getResources().getDimension(R.dimen.bottom_offset_dp);
-        BottomOffsetDecoration bottomOffsetDecoration = new BottomOffsetDecoration((int) offsetPx);
-        binding.recyclerView.addItemDecoration(bottomOffsetDecoration);
-
-
-        adapter.setClickListener(new KeysAdapter.onItemClickListener() {
-            @Override
-            public void onItemClick(int position, TextView textview) {
-
-//https://mikescamell.com/shared-element-transitions-part-4-recyclerview/
-//                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder()
-//                        .addSharedElement(itemView.findViewById(R.id.key_item_model_title), "keys_title_share_element")
-//                        .addSharedElement(itemView.findViewById(R.id.key_item_model_root_layout), "keys_root_share_element")
-//                        .build();
-
-            }
+            Navigation.findNavController(v).navigate(R.id.action_blankFragment_to_showKeysDetailFragment,null,null,extras);
         });
     }
 }

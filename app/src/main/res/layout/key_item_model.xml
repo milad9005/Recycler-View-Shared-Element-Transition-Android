@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/key_item_model_root_layout"
     android:layout_width="match_parent"
-    app:cardBackgroundColor="#1902134A"
+    android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
     android:layout_marginTop="8dp"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="0dp"
+    android:layout_marginEnd="8dp"
+    android:animateLayoutChanges="true"
     android:clickable="true"
     android:focusable="true"
-    android:id="@+id/key_item_model_root_layout"
-    android:animateLayoutChanges="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_height="wrap_content">
+    app:cardBackgroundColor="#1902134A"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,10 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Info@Matiran.ir"
-            android:transitionName="keys_email_share_element"
             android:textColor="@color/blue_700"
             android:textSize="12sp"
             android:textStyle="normal"
+            android:transitionName="keys_email_share_element"
             app:layout_constraintStart_toStartOf="@+id/key_item_model_title"
             app:layout_constraintTop_toBottomOf="@+id/key_item_model_title" />
 
@@ -53,10 +53,10 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
             android:text="Expiretion : 21 Sep 2021"
-            android:transitionName="keys_exp_share_element"
             android:textColor="@color/blue_700"
             android:textSize="14sp"
             android:textStyle="normal"
+            android:transitionName="keys_exp_share_element"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/key_item_model_title"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -74,8 +74,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </com.google.android.material.card.MaterialCardView>

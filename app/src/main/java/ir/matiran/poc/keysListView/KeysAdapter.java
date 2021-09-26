@@ -1,9 +1,9 @@
 package ir.matiran.poc.keysListView;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,32 +13,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 
 import ir.matiran.poc.R;
-import ir.matiran.poc.databinding.KeyItemModelBinding;
 
 public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterViewHolder> {
 
     public KeysAdapter.onItemClickListener clickListener;
-    private KeyItemModelBinding binding;
+
+    Context c;
 
     @NonNull
-    @org.jetbrains.annotations.NotNull
     @Override
-    public KeysAdapterViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        binding = KeyItemModelBinding.inflate(inflater, parent, false);
-        return new KeysAdapterViewHolder(binding.getRoot());
+    public KeysAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.key_item_model, parent, false);
+        c = view.getContext();
+        return new KeysAdapterViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull KeysAdapter.KeysAdapterViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull KeysAdapter.KeysAdapterViewHolder holder, int position) {
 
-        holder.bind(position,clickListener,holder.title);
-        ViewCompat.setTransitionName(holder.title, "shareelement");
+        holder.title.setText(String.valueOf(position));
+        ViewCompat.setTransitionName(holder.title,String.valueOf(position));
+        holder.bind(position, clickListener, holder.title);
+
     }
 
     @Override
     public int getItemCount() {
-        return 100;
+        return 20;
     }
 
     static class KeysAdapterViewHolder extends RecyclerView.ViewHolder {
@@ -47,24 +48,20 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
         private MaterialCardView cardView;
 
 
-
-        public KeysAdapterViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
+        public KeysAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
             title = itemView.findViewById(R.id.key_item_model_title);
-
             cardView = itemView.findViewById(R.id.key_item_model_root_layout);
         }
 
 
         public void bind(final int position, final onItemClickListener listener, TextView title) {
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onItemClick(position,title);
+                    listener.onItemClick(position, title);
                 }
             });
         }
@@ -75,6 +72,6 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
     }
 
     public interface onItemClickListener {
-        void onItemClick(int position, TextView textview);
+        void onItemClick(int position, TextView title);
     }
 }

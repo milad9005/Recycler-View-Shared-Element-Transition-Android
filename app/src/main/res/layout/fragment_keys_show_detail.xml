@@ -11,15 +11,17 @@
     android:layout_gravity="center"
     android:animateLayoutChanges="true"
     android:clickable="true"
+
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="#1902134A"
     app:cardCornerRadius="20dp"
     app:cardElevation="0dp"
-    tools:context=".ShowKeysDetailFragment">
+    tools:context=".KeysShowDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layoutDirection="ltr"
         android:layout_height="wrap_content">
 
         <TextView
@@ -29,7 +31,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Key Name"
-            android:transitionName="shareelement"
             android:textColor="@color/blue_700"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -43,7 +44,7 @@
             android:layout_marginTop="4dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/key_item_model_title"
             app:layout_constraintTop_toBottomOf="@+id/key_item_model_title">
 
@@ -95,10 +96,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Info@Matiran.ir"
-
             android:textColor="@color/blue_700"
             android:textSize="12sp"
             android:textStyle="normal"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/key_item_model_title"
             app:layout_constraintTop_toBottomOf="@+id/expand_keys_detail_layout" />
 
@@ -109,25 +110,14 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
             android:text="Expiretion : 21 Sep 2021"
-
             android:textColor="@color/blue_700"
             android:textSize="14sp"
             android:textStyle="normal"
+
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/key_item_model_title"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <ImageButton
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-
-            android:background="@color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
 
 
         <LinearLayout
@@ -135,10 +125,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView3">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <ImageButton

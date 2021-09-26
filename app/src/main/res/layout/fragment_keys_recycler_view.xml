@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mlsdev.animatedrv.AnimatedRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recycler_view"
@@ -10,4 +10,5 @@
     app:layoutManagerOrientation="vertical"
     app:layoutManagerReverse="false"
     app:layoutManagerType="linear"
-    tools:listitem="@layout/key_item_model" />
+    tools:listitem="@layout/key_item_model"
+    tools:context=".KeysRecyclerViewFragment"/>
