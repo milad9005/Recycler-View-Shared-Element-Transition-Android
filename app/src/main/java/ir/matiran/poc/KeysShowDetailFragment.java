@@ -17,15 +17,14 @@ import ir.matiran.poc.databinding.FragmentKeysShowDetailBinding;
 
 public class KeysShowDetailFragment extends Fragment {
 
-    FragmentKeysShowDetailBinding binding;
+   private FragmentKeysShowDetailBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(android.R.transition.move));
-//        Transition transition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.transition1);
-//        setSharedElementEnterTransition(transition);
+        setSharedElementReturnTransition(TransitionInflater.from(getContext()).inflateTransition(android.R.transition.move));
     }
 
     @Override
@@ -40,13 +39,8 @@ public class KeysShowDetailFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         assert getArguments() != null;
         String transitionName = getArguments().getString("EXTRA_TRANSITION_NAME");
-        binding.keyItemModelTitle.setTransitionName(transitionName);
-
-
-
+        binding.keyItemModelRootLayout.setTransitionName(transitionName);
         startPostponedEnterTransition();
-//        setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(android.R.transition.slide_right));
-
 
     }
 }

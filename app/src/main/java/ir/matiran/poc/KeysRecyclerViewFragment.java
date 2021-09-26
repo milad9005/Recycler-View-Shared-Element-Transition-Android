@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,8 +27,6 @@ public class KeysRecyclerViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -47,6 +44,7 @@ public class KeysRecyclerViewFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         KeysAdapter adapter = new KeysAdapter();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         adapter.notifyDataSetChanged();
@@ -57,40 +55,27 @@ public class KeysRecyclerViewFragment extends Fragment {
         BottomOffsetDecoration bottomOffsetDecoration = new BottomOffsetDecoration((int) offsetPx);
         binding.recyclerView.addItemDecoration(bottomOffsetDecoration);
 
+        postponeEnterTransition();
+        view.getViewTreeObserver()
+                .addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                    @Override
+                    public boolean onPreDraw() {
+                        view.getViewTreeObserver()
+                                .removeOnPreDrawListener(this);
+                        startPostponedEnterTransition();
+                        return true;
+                    }
+                });
+
+
         adapter.setClickListener(new KeysAdapter.onItemClickListener() {
             @Override
-            public void onItemClick(int position, TextView textview) {
-
-
-
-                postponeEnterTransition();
-                binding.recyclerView.getViewTreeObserver()
-                        .addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                            @Override
-                            public boolean onPreDraw() {
-
-                                String shareelement = ViewCompat.getTransitionName(textview);
-                                binding.recyclerView.getViewTreeObserver()
-                                        .removeOnPreDrawListener(this);
-                                startPostponedEnterTransition();
-                                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder().addSharedElement(textview,shareelement).build();
-                                Bundle bundle = new Bundle();
-                                bundle.putString("EXTRA_TRANSITION_NAME",shareelement);
-                                Navigation.findNavController(view).navigate(R.id.action_keysRecyclerViewFragment_to_showKeysDetailFragment, bundle, null, extras);
-
-
-
-                                return true;
-                            }
-                        });
-
-//                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder().addSharedElement(textview, "shareelement").build();
-//                Navigation.findNavController(view).navigate(R.id.action_keysRecyclerViewFragment_to_showKeysDetailFragment, null, null, extras);
-
-//                ViewCompat.setTransitionName(textview,"shareelement");
-//                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder().addSharedElement(textview,"shareelement").build();
-//                Navigation.findNavController(view).navigate(R.id.action_blankFragment_to_showKeysDetailFragment,null,null,extras);
-
+            public void onItemClick(int position, View _view) {
+                String shareelement = ViewCompat.getTransitionName(_view);
+                FragmentNavigator.Extras extras = new FragmentNavigator.Extras.Builder().addSharedElement(_view, shareelement).build();
+                Bundle bundle = new Bundle();
+                bundle.putString("EXTRA_TRANSITION_NAME", shareelement);
+                Navigation.findNavController(view).navigate(R.id.action_keysRecyclerViewFragment_to_showKeysDetailFragment, bundle, null, extras);
             }
         });
 

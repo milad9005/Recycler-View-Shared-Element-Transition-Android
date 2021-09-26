@@ -18,13 +18,12 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
 
     public KeysAdapter.onItemClickListener clickListener;
 
-    Context c;
+
 
     @NonNull
     @Override
     public KeysAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.key_item_model, parent, false);
-        c = view.getContext();
         return new KeysAdapterViewHolder(view);
     }
 
@@ -32,8 +31,8 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
     public void onBindViewHolder(@NonNull KeysAdapter.KeysAdapterViewHolder holder, int position) {
 
         holder.title.setText(String.valueOf(position));
-        ViewCompat.setTransitionName(holder.title,String.valueOf(position));
-        holder.bind(position, clickListener, holder.title);
+        ViewCompat.setTransitionName(holder.cardView,String.valueOf(position));
+        holder.bind(position, clickListener, holder.cardView);
 
     }
 
@@ -56,12 +55,12 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
         }
 
 
-        public void bind(final int position, final onItemClickListener listener, TextView title) {
+        public void bind(final int position, final onItemClickListener listener, View view) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onItemClick(position, title);
+                    listener.onItemClick(position, view);
                 }
             });
         }
@@ -72,6 +71,6 @@ public class KeysAdapter extends RecyclerView.Adapter<KeysAdapter.KeysAdapterVie
     }
 
     public interface onItemClickListener {
-        void onItemClick(int position, TextView title);
+        void onItemClick(int position, View view);
     }
 }

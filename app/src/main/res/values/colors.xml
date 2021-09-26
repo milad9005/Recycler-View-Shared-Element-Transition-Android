@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_gray">#EEEEEE</color>
     <color name="transparent">#00EEEEEE</color>
+    <color name="gray_card_background">#E2E6E8ED</color>
 </resources>
